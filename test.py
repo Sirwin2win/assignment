@@ -14,16 +14,61 @@ print(order_id, product, quantity, unit_price)
 def print_receipt(products, quantities, prices):
     i = 0
     subTotal = 0
-    while(i<products.length):
+    print("============== RECEIPT ===============")
+    while(i<len(products)):
         product = products[i]
-        quantity = quantity[i]
-        price = price[i]
+        quantity = quantities[i]
+        price = prices[i]
         itemTotal = quantity * price
-        subtotal += itemTotal
+        subTotal += itemTotal
 
         print(f"{product}: {quantity}*{price}")
-        i++
-    tax = subtotal * 0.13
-    total = subtotal + tax
+        i += 1
+    tax = subTotal * 0.13
+    total = subTotal + tax
+    print("--------------------------------------")
+    print(f"Subtotal:{subTotal}")
+    print(f"Tax (13%):{tax}")
+    print(f"Total:{total}")
+    print("======================================")
+products = ["Trail Backpack", "Water Bottle", "Headlamp"]
+quantities = [3, 2, 1]
+prices = [89.99, 12.50, 34.00]
+    
+print_receipt(products, quantities, prices)
+
+# def print_receipt(products, quantities, prices):
+#     i = 0
+#     subtotal = 0
+
+#     print("============== RECEIPT ===============")
+
+#     while i < len(products):
+#         product = products[i]
+#         quantity = quantities[i]
+#         price = prices[i]
+
+#         item_total = quantity * price
+#         subtotal += item_total
+
+#         print(f"{product:<16} {quantity} x {price:6.2f} = {item_total:7.2f}")
+
+#         i += 1
+
+#     tax = subtotal * 0.13
+#     total = subtotal + tax
+
+#     print("--------------------------------------")
+#     print(f"Subtotal:                     {subtotal:7.2f}")
+#     print(f"Tax (13%):                    {tax:7.2f}")
+#     print(f"Total:                        {total:7.2f}")
+#     print("======================================")
+
+
+# products = ["Trail Backpack", "Water Bottle", "Headlamp"]
+# quantities = [3, 2, 1]
+# prices = [89.99, 12.50, 34.00]
+
+# print_receipt(products, quantities, prices)
 
 
