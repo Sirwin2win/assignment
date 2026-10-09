@@ -328,3 +328,34 @@ And results will contain a dictionary like:
     "75%": 16.5,
     "max": 20
 }
+
+'''
+def percentile(data, p):
+    """
+    Calculate the p-th percentile of a list of numbers.
+    :param data: List of numerical values.
+    :param p: Percentile to calculate (0 to 100).
+    """
+    if not data:
+        return None
+    if p < 0 or p > 100:
+        raise ValueError("Percentile must be between 0 and 100")
+        
+    # 1. Sort the data in ascending order
+    sorted_data = sorted(data)
+    
+    # 2. Find the virtual index (rank)
+    k = (len(sorted_data) - 1) * (p / 100.0)
+    
+    # 3. Split the index into integer and fractional parts
+    f = int(k)
+    c = k - f
+    
+    # 4. Interpolate between the two closest values
+    if f + 1 < len(sorted_data):
+        return sorted_data[f] + c * (sorted_data[f + 1] - sorted_data[f])
+    else:
+        return sorted_data[f]
+
+
+'''
